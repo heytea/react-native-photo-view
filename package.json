@@ -1,5 +1,5 @@
 {
-  "name": "react-native-photo-view",
+  "name": "@heytea/react-native-photo-view",
   "title": "React Native Photo View",
   "version": "1.0.1",
   "description": "TODO",
@@ -16,15 +16,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/github_account/react-native-photo-view.git",
-    "baseUrl": "https://github.com/github_account/react-native-photo-view"
+    "url": "git+https://github.com/heytea/react-native-photo-view.git",
+    "baseUrl": "https://github.com/heytea/react-native-photo-view"
   },
   "keywords": [
     "react-native"
   ],
   "author": {
-    "name": "Your Name",
-    "email": "yourname@email.com"
+    "name": "heytea",
+    "email": "bfe@heytea.com"
   },
   "license": "MIT",
   "licenseFilename": "LICENSE",
