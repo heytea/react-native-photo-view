@@ -108,6 +108,7 @@ static NSString *const cellID = @"PhotoView";
 
 -(void)layoutSubviews{
   [super layoutSubviews];
+  self.frame = CGRectMake(0, 0, MScreenWidth, MScreenHeight);
   self.backgroundColor= [UIColor blackColor];
   self.label.frame = CGRectMake(0, 20, MScreenWidth, 44);
   self.myCollectionView.frame = CGRectMake(0, 64, MScreenWidth, MScreenHeight-60);
