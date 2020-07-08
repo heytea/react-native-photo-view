@@ -9,19 +9,20 @@ Pod::Spec.new do |s|
   s.description  = <<-DESC
                   react-native-photo-view
                    DESC
-  s.homepage     = "https://github.com/github_account/react-native-photo-view"
+  s.homepage     = package["repository"]["url"]
   # brief license entry:
   s.license      = "MIT"
   # optional - use expanded license entry instead:
   # s.license    = { :type => "MIT", :file => "LICENSE" }
   s.authors      = { "Your Name" => "yourname@email.com" }
   s.platforms    = { :ios => "9.0" }
-  s.source       = { :git => "https://github.com/github_account/react-native-photo-view.git", :tag => "#{s.version}" }
+  s.source       = { :git => package["repository"]["url"], :tag => "#{s.version}" }
 
   s.source_files = "ios/**/*.{h,c,m,swift}"
   s.requires_arc = true
 
   s.dependency "React"
+  s.dependency "SDWebImage"
   # ...
   # s.dependency "..."
 end
