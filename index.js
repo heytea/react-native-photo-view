@@ -1,5 +1,20 @@
-import { NativeModules } from 'react-native';
+import { NativeModules, requireNativeComponent } from 'react-native';
 
-const { ReactNativePhotoView } = NativeModules;
+import React, { Component} from 'react';
 
-export default ReactNativePhotoView;
+var HTPhotoView = requireNativeComponent('HeyteaPhotoView', HeyteaPhotoView)
+
+export default class HeyteaPhotoView extends Component{
+  render() {
+    return <HTPhotoView {...this.props}/>
+  }
+}
+
+
+
+
+
+
+
+
+
