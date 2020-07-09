@@ -10,11 +10,3 @@ export default class HeyteaPhotoView extends Component{
   }
 }
 
-
-
-
-
-
-
-
-

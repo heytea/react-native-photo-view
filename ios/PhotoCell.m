@@ -8,7 +8,6 @@
 
 #import "PhotoCell.h"
 #import <SDWebImage.h>
-#import "Constants.h"
 
 @interface PhotoCell()<UIScrollViewDelegate>
 

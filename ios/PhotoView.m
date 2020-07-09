@@ -7,7 +7,6 @@
 //
 
 #import "PhotoView.h"
-#import "Constants.h"
 #import "PhotoCell.h"
 
 static NSString *const cellID = @"PhotoView";
@@ -19,8 +18,8 @@ static NSString *const cellID = @"PhotoView";
 
 @implementation PhotoView
 
-@synthesize data = _data;
-@synthesize selectedIndex = _selectedIndex;
+// @synthesize data = _data;
+// @synthesize selectedIndex = _selectedIndex;
 
 -(instancetype)initWithFrame:(CGRect)frame{
   self = [super initWithFrame:frame];
@@ -49,12 +48,12 @@ static NSString *const cellID = @"PhotoView";
 -(UICollectionView *)myCollectionView{
   if (_myCollectionView == nil) {
     UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc]init];
-    layout.itemSize = CGSizeMake(MScreenWidth, MScreenHeight-64);
+    layout.itemSize = CGSizeMake(self.frame.size.width, self.frame.size.height-44);
     layout.minimumLineSpacing = 0;
     layout.minimumInteritemSpacing = 0;
     layout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
     
-    _myCollectionView = [[UICollectionView alloc]initWithFrame:CGRectMake(0, 64, MScreenWidth, MScreenHeight-64) collectionViewLayout:layout];
+    _myCollectionView = [[UICollectionView alloc]initWithFrame:CGRectMake(0, 44, self.frame.size.width, self.frame.size.height-44) collectionViewLayout:layout];
     [_myCollectionView registerClass:[PhotoCell class] forCellWithReuseIdentifier:cellID];
     _myCollectionView.delegate = self;
     _myCollectionView.dataSource = self;
@@ -77,9 +76,9 @@ static NSString *const cellID = @"PhotoView";
   _selectedIndex = selectedIndex;
 }
 
-- (NSInteger)selectedIndex{
-  return  _selectedIndex;
-}
+// - (NSInteger)selectedIndex{
+//   return  _selectedIndex;
+// }
 
 
 
@@ -108,14 +107,13 @@ static NSString *const cellID = @"PhotoView";
 
 -(void)layoutSubviews{
   [super layoutSubviews];
-  self.frame = CGRectMake(0, 0, MScreenWidth, MScreenHeight);
   self.backgroundColor= [UIColor blackColor];
-  self.label.frame = CGRectMake(0, 20, MScreenWidth, 44);
-  self.myCollectionView.frame = CGRectMake(0, 64, MScreenWidth, MScreenHeight-60);
+  self.label.frame = CGRectMake(0, 0, self.frame.size.width, 44);
+  self.myCollectionView.frame = CGRectMake(0, 44, self.frame.size.width, self.frame.size.height-44);
 }
 
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView{
-  NSInteger page =  scrollView.contentOffset.x / MScreenWidth;
+  NSInteger page =  scrollView.contentOffset.x / self.frame.size.width;
   self.label.text = [NSString  stringWithFormat:@"%ld / %ld",page+1 ,self.data.count];
 }
 

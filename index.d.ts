@@ -5,7 +5,7 @@ import { StyleProp, ViewStyle } from 'react-native'
 interface HeyteaPhotoViewProps {
 
   // 数据
-  data: Array
+  data: Array<string>
 
   // 首次选中
   selectedIndex?: number
