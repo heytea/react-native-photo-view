@@ -18,8 +18,8 @@ static NSString *const cellID = @"PhotoView";
 
 @implementation PhotoView
 
-// @synthesize data = _data;
-// @synthesize selectedIndex = _selectedIndex;
+ @synthesize data = _data;
+ @synthesize selectedIndex = _selectedIndex;
 
 -(instancetype)initWithFrame:(CGRect)frame{
   self = [super initWithFrame:frame];
@@ -45,15 +45,20 @@ static NSString *const cellID = @"PhotoView";
   return _label;
 }
 
+-(UICollectionViewFlowLayout *)layout{
+    if (!_layout) {
+        _layout = [[UICollectionViewFlowLayout alloc]init];
+        _layout.minimumLineSpacing = 0;
+        _layout.minimumInteritemSpacing = 0;
+        _layout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
+    }
+    return _layout;
+}
+
 -(UICollectionView *)myCollectionView{
   if (_myCollectionView == nil) {
-    UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc]init];
-    layout.itemSize = CGSizeMake(self.frame.size.width, self.frame.size.height-44);
-    layout.minimumLineSpacing = 0;
-    layout.minimumInteritemSpacing = 0;
-    layout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
-    
-    _myCollectionView = [[UICollectionView alloc]initWithFrame:CGRectMake(0, 44, self.frame.size.width, self.frame.size.height-44) collectionViewLayout:layout];
+
+    _myCollectionView = [[UICollectionView alloc]initWithFrame:CGRectMake(0, 44, self.frame.size.width, self.frame.size.height-44) collectionViewLayout:self.layout];
     [_myCollectionView registerClass:[PhotoCell class] forCellWithReuseIdentifier:cellID];
     _myCollectionView.delegate = self;
     _myCollectionView.dataSource = self;
@@ -67,8 +72,13 @@ static NSString *const cellID = @"PhotoView";
  getter
  */
 
-- (void)setData:(NSMutableArray *)data{
+- (void)setData:(NSArray *)data{
   _data = data;
+  _label.text = [NSString stringWithFormat:@"%ld / %lu",(long)self.selectedIndex+1 ,(unsigned long)data.count];
+}
+
+- (NSArray *)data{
+    return _data;
 }
 
 
@@ -76,9 +86,9 @@ static NSString *const cellID = @"PhotoView";
   _selectedIndex = selectedIndex;
 }
 
-// - (NSInteger)selectedIndex{
-//   return  _selectedIndex;
-// }
+ - (NSInteger)selectedIndex{
+   return  _selectedIndex;
+ }
 
 
 
@@ -109,6 +119,7 @@ static NSString *const cellID = @"PhotoView";
   [super layoutSubviews];
   self.backgroundColor= [UIColor blackColor];
   self.label.frame = CGRectMake(0, 0, self.frame.size.width, 44);
+  self.layout.itemSize = CGSizeMake(self.frame.size.width, self.frame.size.height-44);
   self.myCollectionView.frame = CGRectMake(0, 44, self.frame.size.width, self.frame.size.height-44);
 }
 

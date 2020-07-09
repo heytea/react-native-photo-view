@@ -19,7 +19,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface PhotoView : UIView<UICollectionViewDelegate,UICollectionViewDataSource,UIScrollViewDelegate>
 
 @property(nonatomic,strong)UICollectionView *myCollectionView;
-@property(nonatomic,strong)NSMutableArray *data;
+@property(nonatomic,strong)UICollectionViewFlowLayout *layout;
+@property(nonatomic,strong)NSArray *data;
 @property(nonatomic,strong)UILabel *label;
 @property(nonatomic,assign)NSInteger selectedIndex;
 
