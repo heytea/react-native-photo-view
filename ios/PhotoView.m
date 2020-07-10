@@ -25,7 +25,6 @@ static NSString *const cellID = @"PhotoView";
   self = [super initWithFrame:frame];
   if (self) {
     [self setupSubviews];
-    self.selectedIndex = 0;
   }
   return self;
 }
@@ -63,6 +62,7 @@ static NSString *const cellID = @"PhotoView";
     _myCollectionView.delegate = self;
     _myCollectionView.dataSource = self;
     _myCollectionView.pagingEnabled = YES;
+
   }
   return _myCollectionView;
 }
@@ -121,11 +121,15 @@ static NSString *const cellID = @"PhotoView";
   self.label.frame = CGRectMake(0, 0, self.frame.size.width, 44);
   self.layout.itemSize = CGSizeMake(self.frame.size.width, self.frame.size.height-44);
   self.myCollectionView.frame = CGRectMake(0, 44, self.frame.size.width, self.frame.size.height-44);
+    
+  if (self.selectedIndex) {
+    [self.myCollectionView setContentOffset: CGPointMake(self.selectedIndex * self.frame.size.width, 0)];
+  }
 }
 
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView{
   NSInteger page =  scrollView.contentOffset.x / self.frame.size.width;
-  self.label.text = [NSString  stringWithFormat:@"%ld / %ld",page+1 ,self.data.count];
+  self.label.text = [NSString stringWithFormat:@"%ld / %lu",(long)page +1 ,(unsigned long)self.data.count];
 }
 
 

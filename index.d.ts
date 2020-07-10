@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 
 import { StyleProp, ViewStyle } from 'react-native'
 
-interface HeyteaPhotoViewProps {
+interface HeyPhotoViewProps {
 
   // 数据
   data: Array<string>
@@ -17,4 +17,4 @@ interface HeyteaPhotoViewProps {
 
 }
 
-export default class HeyTeaPhotoView extends Component<HeyteaPhotoViewProps, {}> {}
+export default class HeyPhotoView extends Component<HeyteaPhotoViewProps, {}> {}
