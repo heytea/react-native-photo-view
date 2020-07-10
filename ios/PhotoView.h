@@ -26,7 +26,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property(nonatomic,weak) id<PhotoViewDelegeate> delegate;
 
-@property(nonatomic,weak)RCTBubblingEventBlock onSingleTap;
+@property(nonatomic,copy)RCTBubblingEventBlock onSingleTap;
 
 @end
 

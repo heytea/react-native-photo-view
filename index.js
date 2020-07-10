@@ -6,7 +6,7 @@ var HTPhotoView = requireNativeComponent('HeyteaPhotoView', HeyPhotoView)
 
 export default class HeyPhotoView extends Component{
   render() {
-    return <HTPhotoView {...this.props}/>
+    return <HTPhotoView {...this.props} />
   }
 }
 
