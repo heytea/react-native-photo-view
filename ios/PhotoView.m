@@ -38,7 +38,6 @@ static NSString *const cellID = @"PhotoView";
     _label = [[UILabel alloc] init];
     _label.textAlignment = NSTextAlignmentCenter;
     _label.font = [UIFont systemFontOfSize:16];
-    _label.text = [NSString stringWithFormat:@"%ld / %lu",(long)self.selectedIndex+1 ,(unsigned long)self.data.count];
     _label.textColor = [UIColor whiteColor];
   }
   return _label;
@@ -74,7 +73,12 @@ static NSString *const cellID = @"PhotoView";
 
 - (void)setData:(NSArray *)data{
   _data = data;
-  _label.text = [NSString stringWithFormat:@"%ld / %lu",(long)self.selectedIndex+1 ,(unsigned long)data.count];
+  if(self.selectedIndex){
+      _label.text = [NSString stringWithFormat:@"%ld / %lu",(long)self.selectedIndex+1 ,(unsigned long)data.count];
+  }else{
+      _label.text = [NSString stringWithFormat:@"1 / %lu", (unsigned long)data.count];
+  }
+  
 }
 
 - (NSArray *)data{
