@@ -27,15 +27,16 @@ RCT_EXPORT_VIEW_PROPERTY(onSingleTap, RCTBubblingEventBlock);
 
 #pragma mark delegate
 -(void)singleTap{
-    if(self.photoView.onSingleTap){
-      self.photoView.onSingleTap(@{@"tap":@"single"});
-    }
-   
-    [UIView animateWithDuration:.5 animations:^{
+
+  [UIView animateWithDuration:.4 animations:^{
         self.photoView.alpha = 0.2;
     } completion:^(BOOL finished) {
+       if(self.photoView.onSingleTap){
+          self.photoView.onSingleTap(@{@"tap":@"single"});
+        }
         [self.photoView removeFromSuperview];
-    }];
+  }]; 
+
 }
 
 @end

@@ -17,4 +17,4 @@ interface HeyPhotoViewProps {
 
 }
 
-export default class HeyPhotoView extends Component<HeyteaPhotoViewProps, {}> {}
+export default class HeyPhotoView extends Component<HeyPhotoViewProps, {}> {}
