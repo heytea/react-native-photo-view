@@ -1,4 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="com.heyteago.photoview">
+    package="com.heyteago.photoview">
+
+    <application>
+        <activity android:name=".PhotoViewActivity"></activity>
+    </application>
 
 </manifest>

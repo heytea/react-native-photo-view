@@ -2,16 +2,19 @@
 
 ## Getting started
 
-`$ npm install react-native-photo-view --save`
+`$ npm install @heytea/react-native-photo-view --save`
 
 ### Mostly automatic installation
 
-`$ react-native link react-native-photo-view`
+`$ react-native link @heytea/react-native-photo-view`
 
 ## Usage
 ```javascript
-import ReactNativePhotoView from 'react-native-photo-view';
+import ReactNativePhotoView from '@heytea/react-native-photo-view';
 
-// TODO: What to do with the module?
-ReactNativePhotoView;
+// 预览图片
+ReactNativePhotoView.previewImage({
+    urls: ['http://test.cdn.heytea.com/storage/common/2020/07/07/2331c149e6684f26a38fb2ab1251967b.png', 'http://test.cdn.heytea.com/storage/common/2020/07/07/2331c149e6684f26a38fb2ab1251967b.png'],
+    current: 'http://test.cdn.heytea.com/storage/common/2020/07/07/2331c149e6684f26a38fb2ab1251967b.png',
+})
 ```
